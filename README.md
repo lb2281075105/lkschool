@@ -10,4 +10,5 @@ Node服务端   Web端  后台管理系统
 3."dev": "node main.js", // 开发环境运行 npm run dev\n
   "build": "babel src -d dist", // 打包成es5 npm run build\n
   "start": "node dist/app.js" // 线上部署运行 npm run start\n
-5.配置静态文件config
+5.配置静态文件访问路径config
+6.配置模板引擎 npm install nunjucks --save

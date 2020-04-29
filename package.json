@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/lb2281075105/lkschool#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
