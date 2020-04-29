@@ -1,0 +1,26 @@
+{
+  "name": "lkschool",
+  "version": "1.0.0",
+  "description": "Node服务端   Web端  后台管理系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lb2281075105/lkschool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lb2281075105/lkschool/issues"
+  },
+  "homepage": "https://github.com/lb2281075105/lkschool#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
