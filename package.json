@@ -4,7 +4,10 @@
   "description": "Node服务端   Web端  后台管理系统",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node main.js",
+    "build": "babel src -d dist",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0"
   }
