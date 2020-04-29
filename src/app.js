@@ -1,5 +1,11 @@
 import express from 'express';
 import config from './config';
+import nunjucks from 'nunjucks';
+
+
+// 3. 引入路由
+import indexRouter from './../routes/index';
+
 
 const  app = express();
 
@@ -13,10 +19,15 @@ nunjucks.configure(config.viewsPath, {
     express: app,
     noCache: true // 不使用缓存，模板每次都会重新编译
 });
-app.get('/', (req, res)=>{
 
-    res.end('hello, itLike liubo 666');
-});
+
+// 4.挂载路由
+app.use(indexRouter);
+
+// app.get('/', (req, res)=>{
+//
+//     res.end('hello, itLike liubo 666');
+// });
 
 app.listen(3000, ()=>{
     console.log('server is running');
