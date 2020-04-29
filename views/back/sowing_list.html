@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>撩课-后台管理系统</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 管理系统头部 -->
+    <div class="header">
+    <nav class="navbar navbar-custom">
+        <div class="navbar-header">
+            <a href="javascript:;" class="navbar-brand">撩课数据分发管理系统</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:;"><i class="fa fa-cloud-upload"></i>教育云中心</a></li>
+            <li><a href="javascript:;"><i class="fa fa-yelp"></i>分销中心</a></li>
+            <li><a href="javascript:;"><i class="fa fa-xing"></i>CRM对接中心</a></li>
+            <li><a href="setting.html"><i class="fa fa-user"></i>个人中心</a></li>
+            <li><a href="javascript:;"><i class="fa fa-bell"></i><span class="badge">20</span></a></li>
+            <li><a href="javascript:;"><i class="fa fa-sign-out"></i>退出</a></li>
+        </ul>
+    </nav>
+</div>
+    <!-- 主体 -->
+    <div class="main">
+        <!-- 侧边栏 -->
+        <div class="aside">
+            <!-- 个人资料 -->
+            <div class="profile">
+                <!-- 头像 -->
+                <div class="avatar img-circle">
+                    <img src="./uploads/avatar.png">
+                </div>
+                <h4>旋之华</h4>
+            </div>
+            <!-- 导航菜单 -->
+            <div class="navs">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="./index.html">
+                            <i class="fa fa-area-chart"></i>
+                            数据分析
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./user_list.html">
+                            <i class="fa fa-users"></i>
+                            用户中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-object-group"></i>
+                            课程管理
+                            <i class="arrow fa fa-angle-right"></i>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="./course_add.html">
+                                    课程添加
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./course_list.html">
+                                    课程列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./course_category.html">
+                                    课程分类
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./course_topic.html">
+                                    课程专题
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="docent_list.html">
+                            <i class="fa fa-bars"></i>
+                            运营中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./sowing_list.html" class="active">
+                            <i class="fa fa-calculator"></i>
+                            LK建模中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-cog"></i>
+                            设置中心
+                            <i class="arrow fa fa-angle-right"></i>
+                        </a>
+                        <ul class="list-unstyled">
+                            <li><a href="javascript:;">站点设置</a></li>
+                            <li><a href="javascript:;">用户设置</a></li>
+                            <li><a href="javascript:;">角色管理</a></li>
+                            <li><a href="javascript:;">课程设置</a></li>
+                            <li><a href="javascript:;">运营设置</a></li>
+                            <li><a href="javascript:;">财务设置</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="body advert">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">建模管理</a></li>
+                    <li class="active">建模列表</li>
+                </ol>
+                <div class="page-title">
+                    <a href="sowing_add.html" class="btn btn-danger btn-sm pull-right">添加模块</a>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" class="form-inline">
+                            <select name="" class="form-control input-sm">
+                                <option value="">按课程</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按学科</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按热度</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按日期</option>
+                            </select>
+                            <button class="btn btn-primary btn-sm">排序</button>
+                        </form>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>序号</td>
+                                <th>模块名称</th>
+                                <th>模块类型</th>
+                                <th>上架时间</th>
+                                <th>下架时间</th>
+                                <th>访问次数</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LK001</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK002</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK003</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK004</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK005</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK006</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK007</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK008</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK009</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LK010</td>
+                                <td>玩转H5+C3</td>
+                                <td>录播课程</td>
+                                <td>2010/10/01</td>
+                                <td>2020/10/07</td>
+                                <td>1900</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                                    <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分页 -->
+                <ul class="pagination pull-right">
+                    <li><a href="#">上一页</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">下一页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/nprogress/nprogress.js"></script>
+    <script src="js/base.js"></script>
+</body>
+</html>

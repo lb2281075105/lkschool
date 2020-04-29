@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>撩课-后台管理系统</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--留个插槽-用于放置所有引入的文件-->
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+
+<!--引入头部版块-->
+{% include "back/header.html" %}
+
+<!-- 主体 -->
+<div class="main">
+    <!--引入侧边的版块-->
+    {% include "back/aside.html" %}
+    <!--留出插槽，放置其它内容-->
+    {% block body %}
+    {% endblock %}
+</div>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/nprogress/nprogress.js"></script>
+<script src="node_modules/echarts/dist/echarts.js"></script>
+<script src="js/base.js"></script>
+<!--留个插槽-用于放置尾部引入-->
+{% block script %}
+{% endblock %}
+</body>
+</html>
