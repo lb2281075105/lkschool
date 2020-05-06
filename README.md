@@ -1,8 +1,8 @@
 # lkschool
-Node服务端   Web端  后台管理系统
+<strong>Node服务端   Web端  后台管理系统</strong>
 
 
-#####项目根目录中node_modules文件夹删除掉了,需要运行项目,请在项目根目录中执行npm install安装package.json文件中所需要的依赖
+<strong>#####项目根目录中node_modules文件夹删除掉了,需要运行项目,请在项目根目录中执行npm install安装package.json文件中所需要的依赖</strong>
 
 <strong>1. express 运用于Node.js的后端框架,经常使用的后端框架还有Koa egg.js<br><br></strong>
 <strong>2. babel-register 可以作为三方插件,把es6的语法转化成es5<br><br></strong>
