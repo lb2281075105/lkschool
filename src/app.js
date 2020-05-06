@@ -29,6 +29,11 @@ app.use(indexRouter);
 //     res.end('hello, itLike liubo 666');
 // });
 
+// 挂载路由最后面
+app.use((req,res)=>{
+    res.render('404.html');
+});
+
 app.listen(3000, ()=>{
     console.log('server is running');
 });
