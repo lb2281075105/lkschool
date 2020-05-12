@@ -12,3 +12,5 @@
    <strong>"start": "node dist/app.js" // 线上部署运行 npm run start<br><br></strong>
 <strong>5. 配置静态文件访问路径config<br><br></strong>
 <strong>6. 配置模板引擎 npm install nunjucks --save<br><br></strong>
+<strong>7. 统一处理前后端页面404 --save<br><br></strong>
+<strong>8. npm i mongoose --save<br><br></strong>
