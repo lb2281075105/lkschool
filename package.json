@@ -21,6 +21,7 @@
   "homepage": "https://github.com/lb2281075105/lkschool#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "formidable": "^1.2.2",
     "mongoose": "^5.9.12",
     "nunjucks": "^3.2.1"
   },

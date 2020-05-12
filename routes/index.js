@@ -2,7 +2,7 @@
 // CommonJS规范
 // const express = require('express');
 import express from 'express';
-const router = express.Router();
+const router = express.Router({});
 
 
 /*******************后端页面路由***********************/

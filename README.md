@@ -14,3 +14,7 @@
 <strong>6. 配置模板引擎 npm install nunjucks --save<br><br></strong>
 <strong>7. 统一处理前后端页面404 --save<br><br></strong>
 <strong>8. npm i mongoose --save<br><br></strong>
+<strong>9. npm install formidable --save<br><br></strong>
+
+
+

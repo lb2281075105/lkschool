@@ -16,41 +16,79 @@
             <li class="active">添加轮播图</li>
         </ol>
         <div class="advert-add">
-            <form action="" class="form-horizontal">
+            <!--<form action="/sowing/api/add" method="post" class="form-horizontal">-->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="" class="col-md-3 control-label">图片名称</label>-->
+                    <!--<div class="col-md-5">-->
+                        <!--<input id="image_title" name="image_title" type="text" class="form-control input-sm" placeholder="填写图片名称" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="" class="col-md-3 control-label">图片路径</label>-->
+                    <!--<div class="col-md-5">-->
+                        <!--<input id="image_url" name="image_url" type="text" class="form-control input-sm" placeholder="填写图片路径" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="" class="col-md-3 control-label">跳转链接</label>-->
+                    <!--<div class="col-md-5">-->
+                        <!--<input id="image_link" name="image_link" type="text" class="form-control input-sm" placeholder="填写跳转链接" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="" class="col-md-3 control-label">上架时间</label>-->
+                    <!--<div class="col-md-5">-->
+                        <!--<input id="s_time" name="s_time" type="date" class="form-control input-sm" placeholder="选择上架时间" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="" class="col-md-3 control-label">下架时间</label>-->
+                    <!--<div class="col-md-5">-->
+                        <!--<input id="e_time" name="e_time" type="date" class="form-control input-sm" placeholder="选择下架时间" required>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="col-md-8">-->
+                        <!--<input type="submit" class="btn btn-danger btn-sm pull-right" value="添加轮播图"></input>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+            <form action="/sowing/api/add" method="post" class="form-horizontal" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">图片名称</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control input-sm" placeholder="填写图片名称" required>
+                        <input id="image_title" name="image_title" type="text" class="form-control input-sm" placeholder="填写图片名称" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">图片路径</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control input-sm" placeholder="填写图片路径" required>
+                        <input id="image_url" name="image_url" type="file" class="form-control input-sm" placeholder="填写图片路径" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">跳转链接</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control input-sm" placeholder="填写跳转链接" required>
+                        <input id="image_link" name="image_link" type="text" class="form-control input-sm" placeholder="填写跳转链接" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">上架时间</label>
                     <div class="col-md-5">
-                        <input type="date" class="form-control input-sm" placeholder="选择上架时间" required>
+                        <input id="s_time" name="s_time" type="date" class="form-control input-sm" placeholder="选择上架时间" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">下架时间</label>
                     <div class="col-md-5">
-                        <input type="date" class="form-control input-sm" placeholder="选择下架时间" required>
+                        <input id="e_time" name="e_time" type="date" class="form-control input-sm" placeholder="选择下架时间" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-8">
-                        <a href="sowing_list.html" class="btn btn-danger btn-sm pull-right">添加轮播图</a>
+                        <input type="submit" class="btn btn-danger btn-sm pull-right" value="添加轮播图"></input>
                     </div>
                 </div>
             </form>
@@ -64,6 +102,60 @@
 {% block script %}
 
 
+<script type="text/javascript">
+//    $(function () {
+//
+//        $('form').on('submit',function () {
+//            let $form = $('form');
+//
+//            $.ajax({
+//                type: $(this).attr('method'),
+//                url: $(this).attr('action'),
+//                data: $(this).serialize(),
+//                success: function(data){
+//
+//                    console.log(data);
+//                    if (data.status === 200){
+//                        alert('轮播图添加成功');
+//                        window.location.href = '/back/s_list';
+//                    }else {
+//                        alert('轮播图添加失败');
+//
+//                    }
+//                }
+//            });
+//
+//            return false;
+//        });
+//    });
+
+    $(function () {
+
+        $('form').on('submit',function () {
+            let $form = $('form');
+
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: new FormData($(this)[0]),
+                processData:false, // 不让他进行转化
+                contentType:false, // 不让他设置请求头
+                success: function(data){
+
+                    if (data.status === 200){
+                        alert('轮播图添加成功');
+                        window.location.href = '/back/s_list';
+                    }else {
+                        alert('轮播图添加失败');
+
+                    }
+                }
+            });
+
+            return false;
+        });
+    });
+</script>
 {% endblock %}
 
 

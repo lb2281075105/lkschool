@@ -1,0 +1,239 @@
+
+<!--继承base.html的基础模板-->
+{% extends "back/base.html" %}
+
+<!--新增的样式-->
+{% block style %}
+
+    <style>
+    .preview {
+        width: 500px;
+        height: 90px;
+        padding: 0;
+        margin-left: 15px;
+        overflow: hidden;
+        position: relative;
+    }
+    .preview:hover .cover {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .preview:hover .fa-upload {
+        color: rgba(240, 240, 240, 0.8);
+    }
+    input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 90px;
+        font-size: 40px;
+        background-color: rgba(0, 0, 0, 0);
+        transition: all 0.3s;
+    }
+    .fa-upload {
+        color: rgba(240, 240, 240, 0);
+    }
+
+</style>
+
+{% endblock %}
+
+<!--主要内容-->
+{% block body %}
+<div class="container-fluid">
+    <div class="body advert">
+        <!-- 面包屑 -->
+        <ol class="breadcrumb">
+            <li><a href="/back/s_list">轮播图管理</a></li>
+            <li class="active">修改轮播图</li>
+        </ol>
+        <div class="advert-add">
+
+            <form action="/sowing/api/edit" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="" class="col-md-3 control-label">图片名称</label>
+                    <div class="col-md-5">
+                        <input id="image_title" name="image_title" type="text" class="form-control input-sm" placeholder="填写图片名称" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-3 control-label">图片路径</label>
+                    <div class="col-md-2 preview">
+                        <img id="image_url" src="./images/default.png" style="border: 1px solid #e0e0e0;">
+                        <input type="file" id="upfile">
+                        <div class="cover">
+                            <i class="fa fa-upload"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-3 control-label">跳转链接</label>
+                    <div class="col-md-5">
+                        <input id="image_link" name="image_link" type="text" class="form-control input-sm" placeholder="填写跳转链接" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-3 control-label">上架时间</label>
+                    <div class="col-md-5">
+                        <input id="s_time" name="s_time" type="date" class="form-control input-sm" placeholder="选择上架时间" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-3 control-label">下架时间</label>
+                    <div class="col-md-5">
+                        <input id="e_time" name="e_time" type="date" class="form-control input-sm" placeholder="选择下架时间" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <input id="btn_eidt" type="button" class="btn btn-danger btn-sm pull-right" value="修改轮播图"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<!--脚本-->
+{% block script %}
+
+
+<script type="text/javascript">
+
+    let result = {};
+    let _id = '';
+
+    $(function () {
+
+        loadData();
+
+
+        loadUploadFile();
+
+        // 上传图片文件方法1
+//        uploadInfo();
+        // 上传图片文件方法2
+        btn_eidt();
+    });
+    function btn_eidt() {
+        $('#btn_eidt').on('click',function () {
+//            id="btn_eidt" type="button"
+            let $form = $('form');
+            let formData = new FormData();
+
+            formData.append("image_title",$('#image_title').val());
+            formData.append("image_url",$('#upfile').get(0).files[0] || resutlt);
+            formData.append("image_link",$('#image_link').val());
+            formData.append("s_time",$('#s_time').val());
+            formData.append("e_time",$('#e_time').val());
+            formData.append("id",_id);
+
+            $.ajax({
+                url:'http://localhost:3000/sowing/api/edit',
+                type:$form.attr('method'),
+                data:formData,
+                processData:false, // 不让他进行转化
+                contentType:false, // 不让他设置请求头
+                success:function (data) {
+                    if (data.status === 200){
+                        alert('轮播图修改成功');
+                        window.location.href = '/back/s_list';
+                    }else {
+                        alert('轮播图修改失败');
+                    }
+                }
+            });
+
+        });
+    }
+    function uploadInfo() {
+        $('form').on('submit',function () {
+//            id="btn_eidt" type="submit"
+            let $form = $('form');
+            let formData = new FormData();
+
+            formData.append("image_title",$('#image_title').val());
+            formData.append("image_url",$('#upfile').get(0).files[0] || result);
+            formData.append("image_link",$('#image_link').val());
+            formData.append("s_time",$('#s_time').val());
+            formData.append("e_time",$('#e_time').val());
+            formData.append("id",_id);
+
+            $.ajax({
+                url:$form.attr('action'),
+                type:$form.attr('method'),
+                data:formData,
+                processData:false, // 不让他进行转化
+                contentType:false, // 不让他设置请求头
+                success:function (data) {
+                    if (data.status === 200){
+                        alert('轮播图修改成功');
+                        window.location.href = '/back/s_list';
+                    }else {
+                        alert('轮播图修改失败');
+                    }
+                }
+            });
+
+            return false;
+        });
+    }
+    function loadUploadFile() {
+        $('#upfile').on('change',function () {
+
+            // 获取用户上传的图片文件
+            let file = $(this).get(0).files[0];
+            // 读取这个文件
+
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            // 监听这个文件是否读取完毕
+            reader.onloadend = function () {
+//                console.log(reader.result);
+                $('#image_url').attr('src',reader.result);
+
+            };
+
+        });
+    }
+    function loadData() {
+        let url = window.location.search;
+        let sowingId = url.substr(url.indexOf('=') + 1);
+
+        $.ajax({
+            url:'http://localhost:3000/sowing/api/singer/' + sowingId,
+            type:'get',
+            dataType:'json',
+            success:function (data) {
+//                alert(JSON.stringify(data));
+                $('#image_title').val(data.result.image_title);
+                $('#image_url').attr('src','/uploads/' + data.result.image_url);
+                $('#image_link').val(data.result.image_link);
+                $('#s_time').val(data.result.s_time);
+                $('#e_time').val(data.result.e_time);
+//                alert(data.result);
+                result = data.result;
+                _id = sowingId;
+            }
+        });
+    }
+</script>
+{% endblock %}
+
+
+

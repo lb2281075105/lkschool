@@ -52,12 +52,13 @@
                     <tr>
                         <td>{{ loop.index }}</td>
                         <td>{{ sowing.image_title }}</td>
-                        <td>{{ sowing.image_url }}</td>
+                        <!-- http://localhost/uploads/upload_0e48e10ca109c1f377cb59ff17509e99.png -->
+                        <td><img src="/uploads/{{ sowing.image_url }}" alt="" style="width:200px"></td>
                         <td>{{ sowing.image_link }}</td>
                         <td>{{ sowing.s_time }}</td>
                         <td>{{ sowing.e_time }}</td>
                         <td>
-                            <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
+                            <a data-id="{{ sowing._id }}" class="btn btn-primary btn-xs btn-edit">编辑</a>
                             <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
                         </td>
                     </tr>
@@ -83,6 +84,16 @@
 <!--脚本-->
 {% block script %}
 
+<script type="text/javascript">
+    $(function () {
+
+        $('.btn-edit').on('click',function () {
+
+//            alert($(this).attr('data-id'));
+            window.location.href = '/back/s_edit?sid=' + $(this).attr('data-id');
+        });
+    });
+</script>
 
 {% endblock %}
 
