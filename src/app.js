@@ -8,6 +8,7 @@ import errorLog from './../middle_wares/error_log'
 // 3. 引入路由
 import indexRouter from './../routes/index';
 import sowingRouter from './../routes/sowing';
+import userRouter from './../routes/user';
 
 
 const  app = express();
@@ -29,6 +30,7 @@ app.use(bodyParser);
 // 4.挂载路由
 app.use(indexRouter);
 app.use(sowingRouter);
+app.use(userRouter);
 
 // app.get('/', (req, res)=>{
 //

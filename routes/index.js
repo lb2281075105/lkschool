@@ -2,6 +2,8 @@
 // CommonJS规范
 // const express = require('express');
 import express from 'express';
+import Sowing from './../models/Sowing'
+
 const router = express.Router({});
 
 
@@ -25,7 +27,27 @@ router.get('/web',(req,res)=>{
 });
 
 router.get('/web/res',(req,res)=>{
-    res.render('web/resources.html');
+
+    Sowing.find({},"_id image_title image_url image_link s_time e_time",(err,sowings)=>{
+
+        if (err){
+            return next(err);
+        }
+
+        let tags = ['one','two','three','four'];
+
+        for(let i = 0;i < sowings.length;i++){
+            let sowing = sowings[i];
+            sowing.images_tag = tags[i];
+        }
+
+        // res.json({
+        //     result:sowingArray
+        // })
+        res.render('web/resources.html',{sowings});
+
+    });
+
 });
 
 
