@@ -156,7 +156,13 @@ router.get('/sowing/api/remove/:sowingId',(req,res,next)=>{
  */
 
 router.get('/back/s_list',(req,res,next)=>{
-   res.render('back/sowing_list.html');
+    Sowing.find({},"_id image_title image_url image_link s_time e_time",(err,sowings)=>{
+
+        if (err){
+            return next(err);
+        }
+        res.render('back/sowing_list.html',{sowings});
+    });
 
 });
 
