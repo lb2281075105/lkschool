@@ -9,7 +9,7 @@ mongoose.connection.on('open',()=>{
 
 mongoose.connection.on('error',(err)=>{
     console.log('数据库连接失败');
-    throw err;
+    // throw err;
 });
 
 

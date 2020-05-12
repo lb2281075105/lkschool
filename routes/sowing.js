@@ -37,6 +37,52 @@ router.post('/sowing/api/add', (req, res)=>{
 });
 
 
+/**
+ * 获取轮播图列表
+ */
+
+router.get('/sowing/api/list',(req,res,next)=>{
+
+    Sowing.find({},"_id image_title image_url image_link s_time e_time",(err,docs)=>{
+
+        if (err){
+            return next(err);
+        }
+        res.json({
+            status:200,
+            result:docs
+        })
+
+    });
+});
+
+/**
+ * 获取一条轮播图(id)
+ * /sowing/api/list/:sowingId 模糊路径匹配(只能模糊匹配一个)
+ * /sowing/api/list/111
+ * 千万不要
+ * /sowing/api/list/111/2222/333
+ */
+
+
+router.get('/sowing/api/singer/:sowingId',(req,res,next)=>{
+
+    Sowing.findById(req.params.sowingId,"_id image_title image_url image_link s_time e_time",(err,docs)=>{
+
+        if (err){
+            return next(err);
+        }
+        res.json({
+            status:200,
+            result:docs
+        })
+
+    });
+
+});
+
+
+
 /**************************页面路由********************************/
 
 /**
