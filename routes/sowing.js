@@ -211,7 +211,7 @@ router.get('/sowing/api/remove/:sowingId',(req,res,next)=>{
         res.json({
             status:200,
             result:'成功删除轮播图'
-        })
+        });
 
     });
 
