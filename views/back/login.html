@@ -16,25 +16,58 @@
             <div class="avatar">
                 <img src="./uploads/logo.jpg" class="img-circle" alt="">
             </div>
-            <form action="" class="col-md-offset-1 col-md-10">
+            <form action="http://localhost:3000/user/api/login" method="post" class="col-md-offset-1 col-md-10">
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-id-card-o"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="撩课口令">
+                    <input id="user_name" name="user_name" type="text" class="form-control" placeholder="撩课口令" required>
                 </div>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-key"></i>
                     </span>
-                    <input type="password" class="form-control" placeholder="密码">
+                    <input id="user_pwd" name="user_pwd" type="password" class="form-control" placeholder="密码" required>
                 </div>
-                <button type="submit" class="btn btn-lg btn-danger btn-block">登 录</button>
+                <button type="button" class="btn btn-lg btn-danger btn-block btn-login">登 录</button>
             </form>
         </div>
     </div>
     
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./js/md5.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            const S_KEY = 'ItLike.Com';
+
+            $('.btn-login').on('click',function () {
+
+                $user_name = $('user_name');
+                $user_pwd = $('user_pwd');
+                $md5_user_pwd = md5($user_pwd + S_KEY);
+
+                $.ajax({
+                    url:$('form').attr('action'),
+                    type:'post',
+                    dataType:'json',
+                    data:"&user_name=" + $user_name + "&user_pwd=" + $md5_user_pwd,
+                    success:function (data) {
+
+                        if (data.status === 200){
+                            alert('登录成功');
+                            window.location.href = '/back';
+                        }else {
+                            alert('登录失败');
+                        }
+                    }
+                })
+
+            });
+        });
+
+    </script>
 </body>
 </html>

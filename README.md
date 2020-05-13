@@ -15,6 +15,7 @@
 <strong>7. 统一处理前后端页面404 --save<br><br></strong>
 <strong>8. npm i mongoose --save<br><br></strong>
 <strong>9. npm install formidable --save<br><br></strong>
+<strong>10. npm install blueimp-md5 --save<br><br></strong>
 
 
 
