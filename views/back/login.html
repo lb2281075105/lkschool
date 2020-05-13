@@ -57,6 +57,8 @@
                     success:function (data) {
 
                         if (data.status === 200){
+                            // 存字符串
+                            sessionStorage.setItem('result',JSON.stringify(data.result));
                             alert('登录成功');
                             window.location.href = '/back';
                         }else {

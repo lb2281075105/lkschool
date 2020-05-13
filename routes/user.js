@@ -55,6 +55,9 @@ router.post('/user/api/login',(req,res,next)=>{
         if (user !== null){
 
             if (user.user_pwd == user_pwd){
+
+                // 在session中存储客户端的信息
+                req.session.token = user._id;
                 res.json({
                     status:200,
                     result:{

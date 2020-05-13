@@ -16,6 +16,9 @@
 <strong>8. npm i mongoose --save<br><br></strong>
 <strong>9. npm install formidable --save<br><br></strong>
 <strong>10. npm install blueimp-md5 --save<br><br></strong>
+<strong>11. npm install express-session --save<br><br></strong>
+<strong>12. npm install connect-mongo --save<br><br></strong>
 
 
+<strong>轮播图  用户中心  权限控制<br><br></strong>
 
