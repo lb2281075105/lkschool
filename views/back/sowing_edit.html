@@ -60,7 +60,7 @@
         </ol>
         <div class="advert-add">
 
-            <form action="/sowing/api/edit" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action="/back/sowing/api/edit" method="post" class="form-horizontal" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">图片名称</label>
@@ -143,7 +143,7 @@
             formData.append("id",_id);
 
             $.ajax({
-                url:'http://localhost:3000/sowing/api/edit',
+                url:'http://localhost:3000/back/sowing/api/edit',
                 type:$form.attr('method'),
                 data:formData,
                 processData:false, // 不让他进行转化
@@ -216,7 +216,7 @@
         let sowingId = url.substr(url.indexOf('=') + 1);
 
         $.ajax({
-            url:'http://localhost:3000/sowing/api/singer/' + sowingId,
+            url:'http://localhost:3000/back/sowing/api/singer/' + sowingId,
             type:'get',
             dataType:'json',
             success:function (data) {

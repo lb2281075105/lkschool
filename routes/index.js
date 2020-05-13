@@ -8,6 +8,7 @@ const router = express.Router({});
 
 
 /*******************后端页面路由***********************/
+
 router.get('/back',(req,res)=>{
 
     // render 默认会进如到views文件夹下

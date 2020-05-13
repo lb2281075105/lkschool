@@ -18,22 +18,22 @@
         </ol>
         <div class="profile">
             <div class="pull-left">
-                <img src="./uploads/avatar.png" class="img-circle pull-left" alt="">
-                <span class="name">撩课学院</span>
-                <span>喜欢IT, 就上撩课！</span>
+                <img id="icon_url" src="./uploads/avatar.png" class="img-circle pull-left" alt="">
+                <span id="real_name" class="name">撩课学院</span>
+                <span id="intro_self">喜欢IT, 就上撩课！</span>
             </div>
             <ul class="pull-right list-inline">
                 <li>
                     <span>积分</span>
-                    <a href="javascript:;">120</a>
+                    <a href="javascript:;" id="points">120</a>
                 </li>
                 <li>
                     <span>等级</span>
-                    <a href="javascript:;">10</a>
+                    <a href="javascript:;" id="rank">10</a>
                 </li>
                 <li>
                     <span>金币</span>
-                    <a href="javascript:;">10000</a>
+                    <a href="javascript:;" id="gold">10000</a>
                 </li>
             </ul>
         </div>
@@ -147,6 +147,46 @@
 <!--脚本-->
 {% block script %}
 
+<script type="text/javascript">
+    $(function () {
+
+        let token = JSON.parse(sessionStorage.getItem('result')).token;
+        if (token){
+
+            $.ajax({
+                url:'http://localhost:3000/back/user/api/u_msg/' + token,
+                type:'get',
+                dataType:'json',
+                success:function (data) {
+
+//                    alert(JSON.stringify(data));
+                    if (data.status === 200){
+
+                        let src = '';
+                        if (data.result.icon_url){
+                            src = '/uploads/' + data.result.icon_url;
+                        }else {
+                            src = './uploads/avatar.png';
+                        }
+                        $('#icon_url').attr('src',src);
+                        $('#real_name').text(data.result.real_name);
+                        $('#intro_self').text(data.result.intro_self);
+                        $('#points').text(data.result.points);
+                        $('#rank').text(data.result.rank);
+                        $('#gold').text(data.result.gold);
+
+                    }else {
+                        alert('获取失败');
+                    }
+                }
+            });
+        }else {
+            sessionStorage.removeItem('result');
+            window.location.href = '/back/login';
+        }
+
+    });
+</script>
 {% endblock %}
 
 

@@ -95,7 +95,7 @@
         $('.btn-del').on('click',function () {
             let sowingId = $(this).attr('data-id');
             $.ajax({
-                url:'http://localhost:3000/sowing/api/remove/' + sowingId,
+                url:'http://localhost:3000/back/sowing/api/remove/' + sowingId,
                 type:'get',
                 dataType:'json',
                 success:function (data) {

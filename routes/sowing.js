@@ -9,7 +9,7 @@ const router = express.Router({});
 /*
   往数据库中插入一条新纪录
 */
-router.post('/sowing/api/add', (req, res,next)=>{
+router.post('/back/sowing/api/add', (req, res,next)=>{
 
     const form = new formidable.IncomingForm();
     form.uploadDir = config.uploadsPath;
@@ -94,7 +94,7 @@ router.post('/sowing/api/add', (req, res,next)=>{
  * 根据id去修改一条轮播图
  */
 
-router.post('/sowing/api/edit',(req,res,next)=>{
+router.post('/back/sowing/api/edit',(req,res,next)=>{
 
     const form = new formidable.IncomingForm();
     form.uploadDir = config.uploadsPath;
@@ -152,7 +152,7 @@ router.post('/sowing/api/edit',(req,res,next)=>{
  * 获取轮播图列表
  */
 
-router.get('/sowing/api/list',(req,res,next)=>{
+router.get('/back/sowing/api/list',(req,res,next)=>{
 
     Sowing.find({},"_id image_title image_url image_link s_time e_time",(err,docs)=>{
 
@@ -176,7 +176,7 @@ router.get('/sowing/api/list',(req,res,next)=>{
  */
 
 
-router.get('/sowing/api/singer/:sowingId',(req,res,next)=>{
+router.get('/back/sowing/api/singer/:sowingId',(req,res,next)=>{
 
     Sowing.findById(req.params.sowingId,"_id image_title image_url image_link s_time e_time",(err,docs)=>{
 
@@ -201,7 +201,7 @@ router.get('/sowing/api/singer/:sowingId',(req,res,next)=>{
  */
 
 
-router.get('/sowing/api/remove/:sowingId',(req,res,next)=>{
+router.get('/back/sowing/api/remove/:sowingId',(req,res,next)=>{
 
     Sowing.deleteOne({_id:req.params.sowingId},(err,result)=>{
 

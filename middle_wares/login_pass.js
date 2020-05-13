@@ -1,8 +1,7 @@
 export default (req,res,next)=>{
 
-    // 1.过掉所有非后端请求
-
-    if (req.path.indexOf('/back/') == -1){
+    // 1.过掉所有非后端请求:接口和页面路由
+    if (req.path.toLowerCase().indexOf('/back/') === -1){ // 没有找到含/back/后端请求(接口和页面路由)
 
         return next();
     }
@@ -17,8 +16,8 @@ export default (req,res,next)=>{
     // 3.没有登录
     // 3.1 接口
 
-    if (req.path.indexOf('/api/') !== -1){
-        return new Error('没有足够的访问权限');
+    if (req.path.toLowerCase().indexOf('/api/') !== -1){
+        return next(new Error('没有足够的访问权限'));
     }
 
     // 3.2 页面
