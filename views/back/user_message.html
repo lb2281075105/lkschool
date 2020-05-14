@@ -88,7 +88,7 @@
     function loadPageData() {
 
         $(function () {
-            let token = JSON.parse(sessionStorage.getItem('result')).token;
+            let token = JSON.parse(localStorage.getItem('result')).token;
             if (token) {
                 $.ajax({
                     url: 'http://localhost:3000/back/user/api/u_msg_all/' + token,
@@ -114,13 +114,13 @@
                     }
                 });
             }else {
-                sessionStorage.removeItem('result');
+                localStorage.removeItem('result');
                 window.location.href = '/back/login';
             }
         });
     };
     function uploadInfo() {
-        let token = JSON.parse(sessionStorage.getItem('result')).token;
+        let token = JSON.parse(localStorage.getItem('result')).token;
         if (token) {
             $('.btn-set').on('click',function () {
                 const $form = $('form');
@@ -161,7 +161,7 @@
                 });
             });
         }else {
-            sessionStorage.removeItem('result');
+            localStorage.removeItem('result');
             window.location.href = '/back/login';
         }
 

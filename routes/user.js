@@ -214,6 +214,46 @@ router.post('/back/user/api/edit',(req,res,next)=>{
 
 });
 
+/**
+ * 根据token去修改密码
+ */
+
+router.post('/back/user/api/reset/',(req,res,next)=>{
+
+    const token = req.body.token;
+    const old_pwd = req.body.old_pwd;
+    const new_pwd = req.body.new_pwd;
+
+    User.findById(token,(err,user)=>{
+
+        if (err){
+            return next(err);
+        }
+
+        if (user.user_pwd === old_pwd){
+
+            user.user_pwd = new_pwd;
+            user.save((err, result) => {
+                if (err) {
+                    return next(err);
+                }
+                res.json({
+                    status: 200,
+                    result: '修改密码成功'
+                })
+            });
+
+        }else {
+            res.json({
+                status:1,
+                result:'输入的原始密码错误'
+            })
+        }
+
+    });
+});
+
+
 /**************************接口API-end*****************************/
 
 

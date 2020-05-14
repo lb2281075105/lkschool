@@ -150,7 +150,7 @@
 <script type="text/javascript">
     $(function () {
 
-        let token = JSON.parse(sessionStorage.getItem('result')).token;
+        let token = JSON.parse(localStorage.getItem('result')).token;
         if (token){
 
             $.ajax({
@@ -181,7 +181,7 @@
                 }
             });
         }else {
-            sessionStorage.removeItem('result');
+            localStorage.removeItem('result');
             window.location.href = '/back/login';
         }
 
